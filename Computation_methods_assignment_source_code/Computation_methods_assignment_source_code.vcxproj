@@ -144,16 +144,13 @@
     <ClCompile Include="LSI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Numerical_Schemes.cpp" />
-    <ClCompile Include="Plot.cpp" />
     <ClCompile Include="RD.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CN.h" />
     <ClInclude Include="DF.h" />
     <ClInclude Include="LSI.h" />
-    <ClInclude Include="matplotlibcpp.h" />
     <ClInclude Include="Numerical_Schemes.h" />
-    <ClInclude Include="Plot.h" />
     <ClInclude Include="RD.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

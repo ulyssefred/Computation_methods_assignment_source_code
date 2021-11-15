@@ -33,9 +33,6 @@
     <ClCompile Include="CN.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Plot.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Numerical_Schemes.h">
@@ -51,12 +48,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CN.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Plot.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="matplotlibcpp.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
