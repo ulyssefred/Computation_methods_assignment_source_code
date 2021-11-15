@@ -3,7 +3,7 @@
 #include <vector>
 #include <iomanip>
 #include <cmath>
-#define M_E 2.71828182845904523536
+#include <fstream>
 #define M_P 3.14159265358979323846
 using namespace std;
 class Numerical_Schemes
@@ -22,6 +22,7 @@ public:
 	int cols;
 	int rows;
 	vector<vector<double>> Matrix;
+	vector<vector<double>> Exact_results;
 	vector<vector<double>> MatrixInitial(double deltax = 0.05, double deltat = 0.01);
 	vector<vector<double>> Analytical_Solution();
 	vector<double>thomas_algorithm(vector<double> a, vector<double> b,
@@ -29,8 +30,6 @@ public:
 	virtual void SetValue() = 0;
 	void GetRerults();
 	void GetError();
-	//void GetFigure();
-	//void GetErrorFigure();
-	
+	virtual void ResultsOouput() = 0;
 };
 

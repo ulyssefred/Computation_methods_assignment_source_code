@@ -68,6 +68,7 @@ vector<double> Numerical_Schemes::thomas_algorithm(vector<double> a, vector<doub
 
 void Numerical_Schemes::GetRerults()
 {
+	SetValue();
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -77,10 +78,13 @@ void Numerical_Schemes::GetRerults()
 		}
 		cout << endl;
 	}
+	cout << endl;
+
 }
 void Numerical_Schemes::GetError()
 {
-	vector<vector<double>> Exact_results = Analytical_Solution();
+	SetValue();
+	Exact_results = Analytical_Solution();
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -90,6 +94,9 @@ void Numerical_Schemes::GetError()
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
+
+
 
 

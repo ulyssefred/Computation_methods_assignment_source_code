@@ -21,3 +21,37 @@ void RD::SetValue()
 	}
 }
 
+void RD::ResultsOouput()
+{
+	SetValue();
+	ofstream fs;
+	fs.open("results.csv", ios::app);
+	fs << "This is the Richardson scheme results." << endl;
+	for (int i = 0; i < rows; i++)
+	{
+		if (int(i * deltaT * 100) % 10 == 0)
+		{
+			fs << "time " << "," << i * deltaT << endl;
+			for (int j = 0; j < cols; j++)
+			{
+				fs << Matrix[i][j] << ",";
+			}
+			fs << endl;
+		}
+	}
+	fs << "This is the Richardson scheme Error results." << endl;
+	Exact_results = Analytical_Solution();
+	for (int i = 0; i < rows; i++)
+	{
+		if (int(i * deltaT * 100) % 10 == 0)
+		{
+			fs << "time " << "," << i * deltaT << endl;
+			for (int j = 0; j < cols; j++)
+			{
+				fs << Exact_results[i][j] - Matrix[i][j] << ",";
+			}
+			fs << endl;
+		}
+	}
+}
+

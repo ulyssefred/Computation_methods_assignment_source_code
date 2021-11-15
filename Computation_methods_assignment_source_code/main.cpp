@@ -5,11 +5,13 @@
 
 int main()
 {
-	DF test;
-	test.SetValue();
-	test.GetError();
-	LSI test2;
-	test2.SetValue();
-	test2.GetError();
-
+	DF test1;
+	test1.ResultsOouput();
+	RD test2;
+	test2.ResultsOouput();
+	LSI test3;
+	test3.ResultsOouput();
+	CN test4;
+	test4.ResultsOouput();
+	return 0;
 }
