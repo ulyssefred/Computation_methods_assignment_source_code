@@ -5,6 +5,6 @@ class RD :
 {
 public:
 	void SetValue();
-	void ResultsOouput();
+	void ResultsOutput();
 };
 

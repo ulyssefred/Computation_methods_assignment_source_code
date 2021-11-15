@@ -5,13 +5,10 @@
 
 int main()
 {
-	DF test1;
-	test1.ResultsOouput();
-	RD test2;
-	test2.ResultsOouput();
-	LSI test3;
-	test3.ResultsOouput();
-	CN test4;
-	test4.ResultsOouput();
+	
+	LSI test;
+	test.GetRerults();
 	return 0;
+	
+
 }

@@ -30,6 +30,6 @@ public:
 	virtual void SetValue() = 0;
 	void GetRerults();
 	void GetError();
-	virtual void ResultsOouput() = 0;
+	virtual void ResultsOutput() = 0;
 };
 

@@ -5,7 +5,7 @@ class DF :
 {
 public:
 	void SetValue();
-	void ResultsOouput();
+	void ResultsOutput();
 	
 };
 

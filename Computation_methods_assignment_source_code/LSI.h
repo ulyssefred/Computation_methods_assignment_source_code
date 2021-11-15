@@ -5,6 +5,6 @@ class LSI :
 {
 public:
     void SetValue();
-    void ResultsOouput();
+    void ResultsOutput();
 };
 

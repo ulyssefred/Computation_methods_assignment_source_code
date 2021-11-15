@@ -21,7 +21,7 @@ void RD::SetValue()
 	}
 }
 
-void RD::ResultsOouput()
+void RD::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;

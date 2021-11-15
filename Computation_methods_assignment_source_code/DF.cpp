@@ -22,7 +22,7 @@ void DF::SetValue()
 	}
 }
 
-void DF::ResultsOouput()
+void DF::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;

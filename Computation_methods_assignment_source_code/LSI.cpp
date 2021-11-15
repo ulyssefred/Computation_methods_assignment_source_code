@@ -2,7 +2,10 @@
 
 void LSI::SetValue()
 {
-	Matrix = MatrixInitial();
+	cout << "please input deltaT" << endl;
+	double t;
+	cin >> t;
+	Matrix = MatrixInitial(0.05, t);
     vector<double>a(cols - 2);
     vector<double>b(cols - 2);
     vector<double>c(cols - 2);
@@ -25,12 +28,12 @@ void LSI::SetValue()
     }
 }
 
-void LSI::ResultsOouput()
+void LSI::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;
 	fs.open("results.csv", ios::app);
-	fs << "This is the Laasonen Simple Implicit scheme results." << endl;
+	fs << "This is the Laasonen Simple Implicit scheme results. deltat = 0.1" << endl;
 	for (int i = 0; i < rows; i++)
 	{
 		if (int(i * deltaT * 100) % 10 == 0)

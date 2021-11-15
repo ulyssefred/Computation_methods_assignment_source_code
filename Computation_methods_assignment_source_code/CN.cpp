@@ -25,7 +25,7 @@ void CN::SetValue()
     }
 }
 
-void CN::ResultsOouput()
+void CN::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;
