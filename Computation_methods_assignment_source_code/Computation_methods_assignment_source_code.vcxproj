@@ -139,19 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CN.cpp" />
-    <ClCompile Include="DF.cpp" />
-    <ClCompile Include="LSI.cpp" />
+    <ClCompile Include="CNT.cpp" />
+    <ClCompile Include="DFF.cpp" />
+    <ClCompile Include="LFC.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Numerical_Schemes.cpp" />
-    <ClCompile Include="RD.cpp" />
+    <ClCompile Include="RCC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CN.h" />
-    <ClInclude Include="DF.h" />
-    <ClInclude Include="LSI.h" />
+    <ClInclude Include="CNT.h" />
+    <ClInclude Include="DFF.h" />
+    <ClInclude Include="LFC.h" />
     <ClInclude Include="Numerical_Schemes.h" />
-    <ClInclude Include="RD.h" />
+    <ClInclude Include="RCC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

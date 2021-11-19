@@ -1,6 +1,6 @@
-#include "LSI.h"
+#include "LFC.h"
 
-void LSI::SetValue()
+void LFC::SetValue()
 {
 	cout << "please input deltaT" << endl;
 	double t;
@@ -28,7 +28,7 @@ void LSI::SetValue()
     }
 }
 
-void LSI::ResultsOutput()
+void LFC::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;
@@ -46,9 +46,9 @@ void LSI::ResultsOutput()
 			fs << endl;
 		}
 	}
-	fs << "This is the Laasonen Simple Implicit scheme Error results." << endl;
+	fs << "This is the Laasonen Simple Implicit scheme Error results." <<"deltaT = " << deltaT << endl;
 	Exact_results = Analytical_Solution();
-	for (int i = 0; i < rows; i++)
+	for (int i = 1; i < rows; i++)
 	{
 		if (int(i * deltaT * 100) % 10 == 0)
 		{

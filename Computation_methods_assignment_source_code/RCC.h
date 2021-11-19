@@ -1,6 +1,6 @@
 #pragma once
 #include "Numerical_Schemes.h"
-class RD :
+class RCC :
     public Numerical_Schemes
 {
 public:

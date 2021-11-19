@@ -1,10 +1,11 @@
 #pragma once
 #include "Numerical_Schemes.h"
-class CN :
+class DFF :
     public Numerical_Schemes
 {
 public:
-    void SetValue();
-    void ResultsOutput();
+	void SetValue();
+	void ResultsOutput();
+	
 };
 

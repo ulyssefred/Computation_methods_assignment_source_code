@@ -1,6 +1,6 @@
-#include "CN.h"
+#include "CNT.h"
 
-void CN::SetValue()
+void CNT::SetValue()
 {
     Matrix = MatrixInitial();
     vector<double>a(cols - 2);
@@ -25,7 +25,7 @@ void CN::SetValue()
     }
 }
 
-void CN::ResultsOutput()
+void CNT::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;
@@ -45,7 +45,7 @@ void CN::ResultsOutput()
 	}
 	fs << "This is the Crank-Nicholson scheme Error results." << endl;
 	Exact_results = Analytical_Solution();
-	for (int i = 0; i < rows; i++)
+	for (int i = 1; i < rows; i++)
 	{
 		if (int(i * deltaT * 100) % 10 == 0)
 		{

@@ -1,6 +1,6 @@
 #pragma once
 #include "Numerical_Schemes.h"
-class LSI :
+class LFC :
     public Numerical_Schemes
 {
 public:

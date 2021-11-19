@@ -1,7 +1,6 @@
-#include "DF.h"
+#include "RCC.h"
 
-
-void DF::SetValue()
+void RCC::SetValue()
 {
 	Matrix = MatrixInitial();
 	for (int i = 1; i < rows; i++)
@@ -14,20 +13,20 @@ void DF::SetValue()
 			}
 			else
 			{
-				Matrix[i][j] = (Matrix[i - 2][j] + 
-					2 * R * (Matrix[i - 1][j + 1] - Matrix[i - 2][j] + Matrix[i - 1][j - 1]))
-					/ (1 + 2 * R);
+				Matrix[i][j] = 2 * R *
+					(Matrix[i - 1][j + 1] - 2 * Matrix[i - 1][j] + Matrix[i - 1][j - 1])
+					+ Matrix[i - 2][j];
 			}
 		}
 	}
 }
 
-void DF::ResultsOutput()
+void RCC::ResultsOutput()
 {
 	SetValue();
 	ofstream fs;
 	fs.open("results.csv", ios::app);
-	fs << "This is the DuFort-Frankel scheme results."<<endl;
+	fs << "This is the Richardson scheme results." << endl;
 	for (int i = 0; i < rows; i++)
 	{
 		if (int(i * deltaT * 100) % 10 == 0)
@@ -35,14 +34,14 @@ void DF::ResultsOutput()
 			fs << "time " << "," << i * deltaT << endl;
 			for (int j = 0; j < cols; j++)
 			{
-				fs <<Matrix[i][j] << ",";
+				fs << Matrix[i][j] << ",";
 			}
 			fs << endl;
 		}
 	}
-	fs << "This is the DuFort-Frankel scheme Error results."<<endl;
+	fs << "This is the Richardson scheme Error results." << endl;
 	Exact_results = Analytical_Solution();
-	for (int i = 0; i < rows; i++)
+	for (int i = 1; i < rows; i++)
 	{
 		if (int(i * deltaT * 100) % 10 == 0)
 		{
@@ -55,6 +54,4 @@ void DF::ResultsOutput()
 		}
 	}
 }
-
-
 
