@@ -4,7 +4,6 @@ class CNT :
     public Numerical_Schemes
 {
 public:
-    void SetValue();
     void ResultsOutput();
 };
 

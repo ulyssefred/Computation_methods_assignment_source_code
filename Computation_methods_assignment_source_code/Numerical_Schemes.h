@@ -6,6 +6,16 @@
 #include <fstream>
 #define M_P 3.14159265358979323846
 using namespace std;
+/**
+ * @file example.c
+ * @brief 文件简要说明
+ *
+ * 详细说明
+ *
+ * @author 作者信息
+ */
+
+
 class Numerical_Schemes
 {	
 public:
@@ -21,15 +31,14 @@ public:
 	double R;
 	int cols;
 	int rows;
-	vector<vector<double>> Matrix;
-	vector<vector<double>> Exact_results;
-	vector<vector<double>> MatrixInitial(double deltax = 0.05, double deltat = 0.01);
-	vector<vector<double>> Analytical_Solution();
+	vector<double> InitialArray;
+	vector<double> PreviousArray;
+	vector<double> PrePreviousArray;
+	vector<double> CurrentArray;
+	vector<double> Exact_results;
+	vector<double> MatrixInitial(double deltax = 0.05, double deltat = 0.01);
 	vector<double>thomas_algorithm(vector<double> a, vector<double> b,
 		vector<double> c, int n, vector<double>d);
-	virtual void SetValue() = 0;
-	void GetRerults();
-	void GetError();
 	virtual void ResultsOutput() = 0;
 };
 

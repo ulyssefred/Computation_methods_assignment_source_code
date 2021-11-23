@@ -1,60 +1,50 @@
 #include "CNT.h"
 
-void CNT::SetValue()
-{
-    Matrix = MatrixInitial();
-    vector<double>a(cols - 2);
-    vector<double>b(cols - 2);
-    vector<double>c(cols - 2);
-    vector<double>d(cols - 2);
-    vector<double>ans(cols - 2);
-    for (int k = 0; k < rows - 1; k++)
-    {
-        for (int i = 0; i < cols - 2; i++)
-        {
-            a[i] = -R/2.;
-            b[i] = 1. + R;
-            c[i] = -R/2.;
-			d[i] = R * Matrix[k][i]/2. + (1.0 - R)*Matrix[k][i+1] + R * Matrix[k][i + 2]/2.;
-        }
-        d[0] = d[0] + R * Matrix[k + 1][0]/2.;
-        d[cols - 3] = d[cols - 3] + R * Matrix[k + 1][cols - 1]/2.;
-        ans = thomas_algorithm(a, b, c, cols - 2, d);
-        for (int j = 0; j < cols - 2; j++)
-            Matrix[k + 1][j + 1] = ans[j];
-    }
-}
-
 void CNT::ResultsOutput()
 {
-	SetValue();
-	ofstream fs;
+	InitialArray = MatrixInitial();
+	CurrentArray = InitialArray;
+	vector<double>a(cols - 2);
+	vector<double>b(cols - 2);
+	vector<double>c(cols - 2);
+	vector<double>d(cols - 2);
+	vector<double>ans(cols - 2);
+	ofstream fs, fe;
 	fs.open("results.csv", ios::app);
-	fs << "This is the Crank-Nicholson scheme results." << endl;
-	for (int i = 0; i < rows; i++)
+	fe.open("error.csv", ios::app);
+	cout << "This is the Crank-Nicholson Implicit scheme results." << "deltaT = " << deltaT << endl;
+	fs << "This is the Crank-Nicholson Implicit scheme results." << "deltaT = " << deltaT << endl;
+	fe << "This is the Crank-Nicholson Implicit scheme Error results." << "deltaT = " << deltaT << endl;
+	for (int k = 0; k < rows -1; k++)
 	{
-		if (int(i * deltaT * 100) % 10 == 0)
+		PreviousArray = CurrentArray;
+		for (int i = 0; i < cols - 2; i++)
 		{
-			fs << "time " << "," << i * deltaT << endl;
-			for (int j = 0; j < cols; j++)
-			{
-				fs << Matrix[i][j] << ",";
-			}
-			fs << endl;
+			a[i] = -R / 2.;
+			b[i] = 1. + R;
+			c[i] = -R / 2.;
+			d[i] = R * PreviousArray[i] / 2. + (1.0 - R) * PreviousArray[i + 1] + R * PreviousArray[i + 2] / 2.;
 		}
-	}
-	fs << "This is the Crank-Nicholson scheme Error results." << endl;
-	Exact_results = Analytical_Solution();
-	for (int i = 1; i < rows; i++)
-	{
-		if (int(i * deltaT * 100) % 10 == 0)
-		{
-			fs << "time " << "," << i * deltaT << endl;
-			for (int j = 0; j < cols; j++)
+		d[0] = d[0] + R * PreviousArray[0] / 2.;
+		d[cols - 3] = d[cols - 3] + R * PreviousArray[cols - 1] / 2.;
+		ans = thomas_algorithm(a, b, c, cols - 2, d);
+		for (int j = 0; j < cols - 2; j++) {
+			CurrentArray[j + 1] = ans[j];
+			fs << CurrentArray[j + 1] << ",";
+			cout<< CurrentArray[j + 1] << ",";
+			double Temp = 0.;
+			for (int m = 1; m < M + 1; m++)
 			{
-				fs << Exact_results[i][j] - Matrix[i][j] << ",";
+				Temp += exp(-D * (m * M_P / L) * (m * M_P / L) *
+					k * deltaT) * ((1 - pow(-1, m)) /
+						(m * M_P)) * sin(m * M_P * (j + 1) * deltaX / L);
+
 			}
-			fs << endl;
+			Exact_results[j + 1] = Tsur + 2 * (Tin - Tsur) * Temp;
+			fe << Exact_results[j + 1] - CurrentArray[j + 1] << ",";
 		}
+		cout << endl;
+		fs << endl;
+		fe << endl;
 	}
 }

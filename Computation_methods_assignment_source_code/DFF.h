@@ -4,8 +4,6 @@ class DFF :
     public Numerical_Schemes
 {
 public:
-	void SetValue();
 	void ResultsOutput();
-	
 };
 

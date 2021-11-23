@@ -1,60 +1,43 @@
 #include "DFF.h"
 
-
-void DFF::SetValue()
-{
-	Matrix = MatrixInitial();
-	for (int i = 1; i < rows; i++)
-	{
-		for (int j = 1; j < cols - 1; j++)
-		{
-			if (i == 1)
-			{
-				Matrix[i][j] = Matrix[i - 1][j];
-			}
-			else
-			{
-				Matrix[i][j] = (Matrix[i - 2][j] + 
-					2 * R * (Matrix[i - 1][j + 1] - Matrix[i - 2][j] + Matrix[i - 1][j - 1]))
-					/ (1 + 2 * R);
-			}
-		}
-	}
-}
-
 void DFF::ResultsOutput()
 {
-	SetValue();
-	ofstream fs;
+	InitialArray = MatrixInitial();
+	PreviousArray = PrePreviousArray;
+	CurrentArray = InitialArray;
+	ofstream fs,fe;
 	fs.open("results.csv", ios::app);
-	fs << "This is the DuFort-Frankel scheme results."<<endl;
-	for (int i = 0; i < rows; i++)
-	{
-		if (int(i * deltaT * 100) % 10 == 0)
-		{
-			fs << "time " << "," << i * deltaT << endl;
-			for (int j = 0; j < cols; j++)
-			{
-				fs <<Matrix[i][j] << ",";
-			}
-			fs << endl;
-		}
-	}
-	fs << "This is the DuFort-Frankel scheme Error results."<<endl;
-	Exact_results = Analytical_Solution();
+	fe.open("error.csv", ios::app);
+	cout << "This is the DuFort-Frankel scheme results " << endl;
+	fs << "This is the DuFort-Frankel scheme results " << endl;
+	fe << "This is the DuFort-Frankel scheme error results." << endl;
 	for (int i = 1; i < rows; i++)
 	{
-		if (int(i * deltaT * 100) % 10 == 0)
-		{
-			fs << "time " << "," << i * deltaT << endl;
-			for (int j = 0; j < cols; j++)
+		PrePreviousArray = PreviousArray;
+		PreviousArray = CurrentArray;
+		for (int j = 1; j < cols - 1; j++) {
+			CurrentArray[j] = (PrePreviousArray[j] +
+				2 * R * (PreviousArray[j + 1] - PrePreviousArray[j] + PreviousArray[j - 1]))
+				/ (1 + 2 * R);
+			fs << CurrentArray[j] << ",";
+			cout<< CurrentArray[j] << ",";
+			double Temp = 0.;
+			for (int m = 1; m < M + 1; m++)
 			{
-				fs << Exact_results[i][j] - Matrix[i][j] << ",";
+				Temp += exp(-D * (m * M_P / L) * (m * M_P / L) *
+					i * deltaT) * ((1 - pow(-1, m)) /
+						(m * M_P)) * sin(m * M_P * j * deltaX / L);
+
 			}
-			fs << endl;
+			Exact_results[j] = Tsur + 2 * (Tin - Tsur) * Temp;
+			fe << Exact_results[j] - CurrentArray[j] << ",";
 		}
+		cout << endl;
+		fs << endl;
+		fe << endl;	
 	}
 }
+
 
 
 
