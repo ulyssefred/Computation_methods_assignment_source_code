@@ -1,0 +1,148 @@
+\hypertarget{class_numerical___schemes}{}\doxysection{Numerical\+\_\+\+Schemes Class Reference}
+\label{class_numerical___schemes}\index{Numerical\_Schemes@{Numerical\_Schemes}}
+
+
+Abstruct Class, provides public parameters and methods 1.\+Provide Tin, Tsur, D, M, PT(\+Temperature before time 0) 2.\+Provide Matrix\+Initial function (Initialize vector value when time = 0) 3.\+Provide thomas\+\_\+algorithm function 4.\+Provide virtual function (Results\+Output())  
+
+
+
+
+{\ttfamily \#include $<$Numerical\+\_\+\+Schemes.\+h$>$}
+
+Inheritance diagram for Numerical\+\_\+\+Schemes\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_numerical___schemes}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_numerical___schemes_abc33a3526c364f0647ddc06e3d41635b}{Matrix\+Initial}} (double deltax=0.\+05, double deltat=0.\+01)
+\begin{DoxyCompactList}\small\item\em Vector initial function, set vector value when time = 0. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_numerical___schemes_a5b936ba0671ecdad6cb0d7b17c20decd}{thomas\+\_\+algorithm}} (vector$<$ double $>$ a, vector$<$ double $>$ b, vector$<$ double $>$ c, int n, vector$<$ double $>$d)
+\begin{DoxyCompactList}\small\item\em thomas\+\_\+algorithm function, transfer vector value from time = n to time = n+1. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_numerical___schemes_a5666504d0b5bc2ce6b1b1d9ca801ee36}{Results\+Output}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a5db2b0570bec87ca6cd4afe6f3e75612}\label{class_numerical___schemes_a5db2b0570bec87ca6cd4afe6f3e75612}} 
+const double {\bfseries Tin} = 100.
+\begin{DoxyCompactList}\small\item\em Set Tin = 100.\+0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a9a4df69d4e1dd502438cf2e0177003c2}\label{class_numerical___schemes_a9a4df69d4e1dd502438cf2e0177003c2}} 
+const double {\bfseries Tsur} = 300.
+\begin{DoxyCompactList}\small\item\em Set Tsur = 300.\+0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a745318055c80e13c055c0053fdeb94cb}\label{class_numerical___schemes_a745318055c80e13c055c0053fdeb94cb}} 
+const double {\bfseries D} = 0.\+1
+\begin{DoxyCompactList}\small\item\em Set D = 0.\+1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a2eb642466ffe34db894e7f180fb4c6be}\label{class_numerical___schemes_a2eb642466ffe34db894e7f180fb4c6be}} 
+const int {\bfseries M} = 2000
+\begin{DoxyCompactList}\small\item\em Set m = 2000 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_aa7fdc9dc31ea669b7a8e8a16e6d08b74}\label{class_numerical___schemes_aa7fdc9dc31ea669b7a8e8a16e6d08b74}} 
+double {\bfseries L} = 1.
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a808b79c7dc70594bbde24698d1185c3b}\label{class_numerical___schemes_a808b79c7dc70594bbde24698d1185c3b}} 
+double {\bfseries T} = 0.\+5
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_aabe9e047718cc5d63bbfc69d2198b9fa}\label{class_numerical___schemes_aabe9e047718cc5d63bbfc69d2198b9fa}} 
+double {\bfseries deltaT} = 0.\+05
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a7548c5641215dc14b603b337ec60e3c0}\label{class_numerical___schemes_a7548c5641215dc14b603b337ec60e3c0}} 
+double {\bfseries deltaX} = 0.\+01
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_ad3be95bb87bdeecd44e8f10d7de59c40}\label{class_numerical___schemes_ad3be95bb87bdeecd44e8f10d7de59c40}} 
+const double {\bfseries PT} = 100.
+\begin{DoxyCompactList}\small\item\em Set Temperature(\+PT) before time 0, PT=100.\+0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a358506fdadbe7a9495a05fba42e0b71c}\label{class_numerical___schemes_a358506fdadbe7a9495a05fba42e0b71c}} 
+double {\bfseries R}
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a2e99229d49d3a166bd71103278923c81}\label{class_numerical___schemes_a2e99229d49d3a166bd71103278923c81}} 
+int {\bfseries cols}
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a5aa00200fe222b051dc78e63f3ec2ed0}\label{class_numerical___schemes_a5aa00200fe222b051dc78e63f3ec2ed0}} 
+int {\bfseries rows}
+\item 
+\mbox{\Hypertarget{class_numerical___schemes_a7a3d837fdd72d2b9f52fe04a4e95cb8e}\label{class_numerical___schemes_a7a3d837fdd72d2b9f52fe04a4e95cb8e}} 
+vector$<$ double $>$ {\bfseries Initial\+Array}
+\begin{DoxyCompactList}\small\item\em vector(time = 0) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_acc21e26f1e46dd21db0784673c8c9e2c}\label{class_numerical___schemes_acc21e26f1e46dd21db0784673c8c9e2c}} 
+vector$<$ double $>$ {\bfseries Previous\+Array}
+\begin{DoxyCompactList}\small\item\em vector(time = n -\/1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a10d655ce5be345473ce9c1b1b7b38afa}\label{class_numerical___schemes_a10d655ce5be345473ce9c1b1b7b38afa}} 
+vector$<$ double $>$ {\bfseries Pre\+Previous\+Array}
+\begin{DoxyCompactList}\small\item\em vector(time = n-\/2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a3c2fdd01e54b9881a9c11675f8840b71}\label{class_numerical___schemes_a3c2fdd01e54b9881a9c11675f8840b71}} 
+vector$<$ double $>$ {\bfseries Current\+Array}
+\begin{DoxyCompactList}\small\item\em vector(need to be computed now) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_numerical___schemes_a3fef360daff5a6e8c706f3c269677c7f}\label{class_numerical___schemes_a3fef360daff5a6e8c706f3c269677c7f}} 
+vector$<$ double $>$ {\bfseries Exact\+\_\+results}
+\begin{DoxyCompactList}\small\item\em Analytical solution results \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstruct Class, provides public parameters and methods 1.\+Provide Tin, Tsur, D, M, PT(\+Temperature before time 0) 2.\+Provide Matrix\+Initial function (Initialize vector value when time = 0) 3.\+Provide thomas\+\_\+algorithm function 4.\+Provide virtual function (Results\+Output()) 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_numerical___schemes_abc33a3526c364f0647ddc06e3d41635b}\label{class_numerical___schemes_abc33a3526c364f0647ddc06e3d41635b}} 
+\index{Numerical\_Schemes@{Numerical\_Schemes}!MatrixInitial@{MatrixInitial}}
+\index{MatrixInitial@{MatrixInitial}!Numerical\_Schemes@{Numerical\_Schemes}}
+\doxysubsubsection{\texorpdfstring{MatrixInitial()}{MatrixInitial()}}
+{\footnotesize\ttfamily vector$<$ double $>$ Numerical\+\_\+\+Schemes\+::\+Matrix\+Initial (\begin{DoxyParamCaption}\item[{double}]{deltax = {\ttfamily 0.05},  }\item[{double}]{deltat = {\ttfamily 0.01} }\end{DoxyParamCaption})}
+
+
+
+Vector initial function, set vector value when time = 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deltax} & Input deltaT \\
+\hline
+{\em deltat} & Input deltaT \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector(when time = 0) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_numerical___schemes_a5666504d0b5bc2ce6b1b1d9ca801ee36}\label{class_numerical___schemes_a5666504d0b5bc2ce6b1b1d9ca801ee36}} 
+\index{Numerical\_Schemes@{Numerical\_Schemes}!ResultsOutput@{ResultsOutput}}
+\index{ResultsOutput@{ResultsOutput}!Numerical\_Schemes@{Numerical\_Schemes}}
+\doxysubsubsection{\texorpdfstring{ResultsOutput()}{ResultsOutput()}}
+{\footnotesize\ttfamily virtual void Numerical\+\_\+\+Schemes\+::\+Results\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_n_t_ad73edadaa4fc9a12aaef805890d8f117}{CNT}}, \mbox{\hyperlink{class_d_f_f_af9565bd9bbc1a78c63fd0cae94220d5f}{DFF}}, \mbox{\hyperlink{class_l_f_c_a7038f8df60f8ed8e5df0b23a05286d02}{LFC}}, and \mbox{\hyperlink{class_r_c_c_a89c4cd849adb63de0daed79b76e42ce1}{RCC}}.
+
+\mbox{\Hypertarget{class_numerical___schemes_a5b936ba0671ecdad6cb0d7b17c20decd}\label{class_numerical___schemes_a5b936ba0671ecdad6cb0d7b17c20decd}} 
+\index{Numerical\_Schemes@{Numerical\_Schemes}!thomas\_algorithm@{thomas\_algorithm}}
+\index{thomas\_algorithm@{thomas\_algorithm}!Numerical\_Schemes@{Numerical\_Schemes}}
+\doxysubsubsection{\texorpdfstring{thomas\_algorithm()}{thomas\_algorithm()}}
+{\footnotesize\ttfamily vector$<$ double $>$ Numerical\+\_\+\+Schemes\+::thomas\+\_\+algorithm (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{a,  }\item[{vector$<$ double $>$}]{b,  }\item[{vector$<$ double $>$}]{c,  }\item[{int}]{n,  }\item[{vector$<$ double $>$}]{d }\end{DoxyParamCaption})}
+
+
+
+thomas\+\_\+algorithm function, transfer vector value from time = n to time = n+1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & coefficient vector \\
+\hline
+{\em b} & coefficient vector \\
+\hline
+{\em c} & coefficient vector \\
+\hline
+{\em n} & vector size \\
+\hline
+{\em d} & vector(time = n) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector(time = n+1) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_numerical___schemes_8h}{Numerical\+\_\+\+Schemes.\+h}}\item 
+Numerical\+\_\+\+Schemes.\+cpp\end{DoxyCompactItemize}

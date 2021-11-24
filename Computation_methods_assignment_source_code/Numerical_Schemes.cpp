@@ -1,6 +1,15 @@
+//////////////////////////
+//Numerical_Schemes.cpp///
+//////////////////////////
+
 #include "Numerical_Schemes.h"
 
-
+/**
+ * @brief Vector initial function, set vector value when time = 0.
+ * @param deltax Input deltaT
+ * @param deltat Input deltaT
+ * @return vector(when time = 0)
+ */
 vector<double> Numerical_Schemes::MatrixInitial(double deltax, double deltat)
 {
 	deltaT = deltat;
@@ -23,7 +32,15 @@ vector<double> Numerical_Schemes::MatrixInitial(double deltax, double deltat)
 
 	return _matrix;
 }
-
+/**
+ * @brief thomas_algorithm function, transfer vector value from time = n to time = n+1.
+ * @param a coefficient vector
+ * @param b coefficient vector
+ * @param c coefficient vector
+ * @param n vector size
+ * @param d vector(time = n)
+ * @return vector(time = n+1)
+ */
 vector<double> Numerical_Schemes::thomas_algorithm(vector<double> a, vector<double> b, vector<double> c, int n, vector<double> d)
 {
 	int i;

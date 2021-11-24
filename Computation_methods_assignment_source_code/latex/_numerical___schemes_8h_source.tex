@@ -1,0 +1,40 @@
+\hypertarget{_numerical___schemes_8h_source}{}\doxysection{Numerical\+\_\+\+Schemes.\+h}
+\mbox{\hyperlink{_numerical___schemes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define M\_P 3.14159265358979323846}}
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_numerical___schemes}{Numerical\_Schemes}}}
+\DoxyCodeLine{26 \{   }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_numerical___schemes_a5db2b0570bec87ca6cd4afe6f3e75612}{Tin}} = 100.;}
+\DoxyCodeLine{35     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_numerical___schemes_a9a4df69d4e1dd502438cf2e0177003c2}{Tsur}} = 300.;}
+\DoxyCodeLine{39     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_numerical___schemes_a745318055c80e13c055c0053fdeb94cb}{D}} = 0.1;}
+\DoxyCodeLine{43     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_numerical___schemes_a2eb642466ffe34db894e7f180fb4c6be}{M}} = 2000;}
+\DoxyCodeLine{44     \textcolor{keywordtype}{double} L = 1.;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{double} T = 0.5;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{double} deltaT = 0.05;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{double} deltaX = 0.01;}
+\DoxyCodeLine{51     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_numerical___schemes_ad3be95bb87bdeecd44e8f10d7de59c40}{PT}} = 100.;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{double} R;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} cols;}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} rows;}
+\DoxyCodeLine{58     vector<double> \mbox{\hyperlink{class_numerical___schemes_a7a3d837fdd72d2b9f52fe04a4e95cb8e}{InitialArray}};}
+\DoxyCodeLine{62     vector<double> \mbox{\hyperlink{class_numerical___schemes_acc21e26f1e46dd21db0784673c8c9e2c}{PreviousArray}};}
+\DoxyCodeLine{66     vector<double> \mbox{\hyperlink{class_numerical___schemes_a10d655ce5be345473ce9c1b1b7b38afa}{PrePreviousArray}};}
+\DoxyCodeLine{70     vector<double> \mbox{\hyperlink{class_numerical___schemes_a3c2fdd01e54b9881a9c11675f8840b71}{CurrentArray}};}
+\DoxyCodeLine{74     vector<double> \mbox{\hyperlink{class_numerical___schemes_a3fef360daff5a6e8c706f3c269677c7f}{Exact\_results}};}
+\DoxyCodeLine{75     vector<double> \mbox{\hyperlink{class_numerical___schemes_abc33a3526c364f0647ddc06e3d41635b}{MatrixInitial}}(\textcolor{keywordtype}{double} deltax = 0.05, \textcolor{keywordtype}{double} deltat = 0.01);}
+\DoxyCodeLine{76     vector<double>\mbox{\hyperlink{class_numerical___schemes_a5b936ba0671ecdad6cb0d7b17c20decd}{thomas\_algorithm}}(vector<double> a, vector<double> b,}
+\DoxyCodeLine{77         vector<double> c, \textcolor{keywordtype}{int} n, vector<double>d);}
+\DoxyCodeLine{78     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} ResultsOutput() = 0;}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 }
+
+\end{DoxyCode}
